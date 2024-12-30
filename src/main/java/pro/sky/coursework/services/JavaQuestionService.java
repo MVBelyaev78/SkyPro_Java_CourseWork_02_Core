@@ -10,12 +10,16 @@ import java.util.*;
 
 @Service
 public class JavaQuestionService implements QuestionService {
-    private Set<Question> questions = new HashSet<>();
+    private final Set<Question> questions = new HashSet<>();
     private final Integer amount = 5; // test
     private final Random randomNumbers = new Random();
 
     public Question add(String question, String answer) {
         return add(new QuestionImpl(question, answer));
+    }
+
+    public Question remove(String question, String answer) {
+        return remove(new QuestionImpl(question, answer));
     }
 
     public Question add(Question question) {

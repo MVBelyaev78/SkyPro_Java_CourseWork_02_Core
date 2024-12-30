@@ -1,15 +1,15 @@
 package pro.sky.coursework.domains;
 
 public interface Question {
-    String getQuestion();
+    String question();
 
-    String getAnswer();
+    String answer();
 
     boolean equals(Object object);
 
     int hashCode();
 
     static Question copyOf(Question question) {
-        return new QuestionImpl(question.getQuestion(), question.getAnswer());
+        return new QuestionImpl(question.question(), question.answer());
     }
 }

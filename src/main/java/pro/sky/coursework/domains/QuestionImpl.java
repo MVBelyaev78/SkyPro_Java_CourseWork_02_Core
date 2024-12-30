@@ -2,32 +2,14 @@ package pro.sky.coursework.domains;
 
 import java.util.Objects;
 
-public class QuestionImpl implements Question {
-    private final String question;
-    private final String answer;
-
-    public QuestionImpl(String question, String answer) {
-        this.question = question;
-        this.answer = answer;
-    }
-
-    public String getQuestion() {
-        return question;
-    }
-
-    public String getAnswer() {
-        return answer;
-    }
+public record QuestionImpl(String question, String answer) implements Question {
 
     public boolean equals(Object object) {
         return (this == object ||
                 object != null &&
                         getClass() == object.getClass() &&
-                        Objects.equals(question, ((Question) object).getQuestion())) &&
-                        Objects.equals(answer, ((Question) object).getAnswer());
+                        Objects.equals(question, ((Question) object).question())) &&
+                Objects.equals(answer, ((Question) object).answer());
     }
 
-    public int hashCode() {
-        return Objects.hash(question, answer);
-    }
 }
