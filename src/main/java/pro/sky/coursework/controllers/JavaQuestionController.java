@@ -5,17 +5,16 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 import pro.sky.coursework.domains.Question;
-import pro.sky.coursework.services.JavaQuestionService;
-import pro.sky.coursework.services.QuestionService;
+import pro.sky.coursework.services.JavaQuestionServiceImpl;
 
 import java.util.Collection;
 
 @RestController
 @RequestMapping("/exam/java")
 public class JavaQuestionController {
-    private final JavaQuestionService javaQuestionService;
+    private final JavaQuestionServiceImpl javaQuestionService;
 
-    public JavaQuestionController(JavaQuestionService javaQuestionService) {
+    public JavaQuestionController(JavaQuestionServiceImpl javaQuestionService) {
         this.javaQuestionService = javaQuestionService;
     }
 

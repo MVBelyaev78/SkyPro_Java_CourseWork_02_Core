@@ -3,15 +3,15 @@ package pro.sky.coursework.services;
 import org.springframework.stereotype.Service;
 import pro.sky.coursework.domains.Question;
 import pro.sky.coursework.domains.QuestionImpl;
+import pro.sky.coursework.exceptions.IncorrectQuestionNumberException;
 import pro.sky.coursework.exceptions.QuestionAlreadyExistsException;
 import pro.sky.coursework.exceptions.QuestionNotFoundException;
 
 import java.util.*;
 
 @Service
-public class JavaQuestionService implements QuestionService {
+public class JavaQuestionServiceImpl implements QuestionService {
     private final Set<Question> questions = new HashSet<>();
-    private final Integer amount = 5; // test
     private final Random randomNumbers = new Random();
 
     public Question add(String question, String answer) {
@@ -46,7 +46,21 @@ public class JavaQuestionService implements QuestionService {
         return questions;
     }
 
-    public Integer getRandomQuestion(Integer amount) {
-        return randomNumbers.nextInt(amount) + 1;
+    public List<Integer> getRandomList(Integer amount) {
+        if (amount <= 0 || amount > questions.size()) {
+            throw new IncorrectQuestionNumberException();
+        }
+        List<Integer> result = new ArrayList<>();
+        // How to convert imperative cycle below into a stream API expression?
+        for (int i = 0; i < amount; i++) {
+            result.add(randomNumbers.nextInt(amount));
+        }
+        return result;
+    }
+
+    public List<Question> getQuestionList(List<Integer> questionNumberList) {
+        List<Question> resultQuestionList = new ArrayList<>();
+        questionNumberList.forEach(i -> resultQuestionList.add(questions.stream().toList().get(i)));
+        return resultQuestionList;
     }
 }

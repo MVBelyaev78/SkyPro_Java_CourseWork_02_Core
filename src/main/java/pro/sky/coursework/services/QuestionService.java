@@ -3,6 +3,7 @@ package pro.sky.coursework.services;
 import pro.sky.coursework.domains.Question;
 
 import java.util.Collection;
+import java.util.List;
 
 public interface QuestionService {
     Question add(String question, String answer);
@@ -13,7 +14,11 @@ public interface QuestionService {
 
     Question remove(Question question);
 
+    Boolean contains(Question question);
+
     Collection<Question> getAll();
 
-    Integer getRandomQuestion(Integer amount);
+    List<Integer> getRandomList(Integer amount);
+
+    List<Question> getQuestionList(List<Integer> questionNumberList);
 }
