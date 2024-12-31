@@ -19,10 +19,12 @@ public class ExaminerServiceTests {
     @InjectMocks
     ExaminerServiceImpl examinerOut;
 
-//    @Test
-//    void getQuestionsOK() {
-//        when(javaQuestionService.getAll()).thenReturn(TestConst.questionsTotal);
-//        when(examinerOut.getRandomList(TestConst.numberQuestionsInExam)).thenReturn(TestConst.questionsInExam);
-//        assertEquals(TestConst.numberQuestionsInExam, examinerOut.getQuestions(TestConst.numberQuestionsInExam).size());
-//    }
+    @Test
+    void getQuestionsOK() {
+        when(javaQuestionService.getAll()).thenReturn(TestConst.questionsTotal);
+        when(javaQuestionService.getQuestionList(TestConst.numberQuestionsInExamList))
+                .thenReturn(TestConst.questionsInExamList);
+        assertEquals(TestConst.numberQuestionsInExam,
+                examinerOut.getQuestions(TestConst.numberQuestionsInExam).size());
+    }
 }

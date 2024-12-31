@@ -3,7 +3,6 @@ package pro.sky.coursework;
 import pro.sky.coursework.domains.Question;
 import pro.sky.coursework.domains.QuestionImpl;
 
-import java.util.ArrayList;
 import java.util.HashSet;
 import java.util.List;
 import java.util.Set;

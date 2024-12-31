@@ -7,7 +7,7 @@ import java.util.List;
 public class ExaminerServiceImpl implements ExaminerService {
     private final JavaQuestionServiceImpl javaQuestionService = new JavaQuestionServiceImpl();
 
-//    public List<Question> getQuestions(Integer amountCurrent) {
-//        return javaQuestionService.getQuestionList(amountCurrent);
-//    }
+    public List<Question> getQuestions(Integer amountCurrent) {
+        return javaQuestionService.getQuestionList(javaQuestionService.getRandomList(amountCurrent));
+    }
 }
