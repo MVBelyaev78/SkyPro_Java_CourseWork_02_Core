@@ -1,21 +1,15 @@
-package pro.sky.coursework.services;
+package pro.sky.coursework.repositories;
 
 import pro.sky.coursework.domains.Question;
 
 import java.util.Collection;
 
-public interface QuestionService {
+public interface QuestionRepository {
     Question add(Question question);
-
-    Question add(String question, String answer);
 
     Question remove(Question question);
 
-    Question remove(String question, String answer);
-
     Question find(Question question);
-
-    Question find(String question, String answer);
 
     Collection<Question> getAll();
 

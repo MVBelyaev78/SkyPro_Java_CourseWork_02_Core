@@ -1,15 +1,18 @@
 package pro.sky.coursework.domains;
 
-public interface Question {
-    String getQuestion();
+import java.util.Objects;
 
-    String getAnswer();
+public record Question(String question, String answer) {
 
-    boolean equals(Object object);
-
-    int hashCode();
+    public boolean equals(Object object) {
+        return (this == object ||
+                object != null &&
+                        getClass() == object.getClass() &&
+                        Objects.equals(question, ((Question) object).question())) &&
+                        Objects.equals(answer, ((Question) object).answer());
+    }
 
     static Question copyOf(Question question) {
-        return new QuestionImpl(question.getQuestion(), question.getAnswer());
+        return new Question(question.question(), question.answer());
     }
 }
